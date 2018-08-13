@@ -166,19 +166,30 @@ ul.todo .buttons button svg{
     
 }
 
-ul.todo .buttons button.complete svg{
+ul.todo li .buttons button.complete svg{
     border-radius: 100%;
     border: 1.5px solid #25b99a;
     fill: #25b99a;
 }
 
+ul.todo#completed li .buttons button.complete svg{
+    background: #25b99a;
+    fill: #ffffff;
+    transition: 0.2s ease;
+}
+
+ul.todo:not(#completed) li .buttons button.complete:hover svg{
+    background: rgba(37, 185, 154, 0.75);
+}
+
 ul.todo .buttons button svg {
     transition: 0.2s ease;
 }
-ul.todo .buttons button.remove svg {
+
+ul.todo li .buttons button.remove svg {
     fill: #c0cecb;
 }
 
-ul.todo .buttons button.remove:hover svg {
+ul.todo li .buttons button.remove:hover svg {
     fill: red;
 }
