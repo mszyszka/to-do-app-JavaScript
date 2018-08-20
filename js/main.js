@@ -12,11 +12,12 @@ document.getElementById('add').addEventListener('click', function() {
 })
 
 function removeItem() {
-    console.log(this.parentNode);
-    // var item = this.parentNode.parentNode;
-    // var parent = item.parentNode;
 
-    // parent.removeChild(item);
+    var item = this.parentNode.parentNode;
+    var parent = item.parentNode;
+
+    parent.removeChild(item);
+    
 }
 
 function addItemTodo(text) {
