@@ -16,25 +16,37 @@ document.getElementById('add').addEventListener('click', function() {
     var value = document.getElementById('item').value;
     
     if (value) {
-        addItemTodo(value);
+        addItemToDOM(value);
+    }
+});
+
+document.getElementById('item').addEventListener('keydown', function(e) {
+    var value = this.value;
+
+    if (e.code === 'Enter' && value) {
+        addItemToDOM(value);
+    }
+});
+
+function addItem() {
+        addItemToDOM(value);
         document.getElementById('item').value = '';
 
         data.todo.push(value);
         dataObjectUpdated();
-    } 
-})
+} 
 
 function renderToDoList(){
     if (!data.todo.length && !data.completed.length) return;
 
     for (var i = 0; i < data.todo.length; i++) {
         var value = data.todo[i];
-        addItemTodo(value);
+        addItemToDOM(value);
     }
 
     for (var j = 0; j < data.completed.length; j++) {
         var value = data.completed[j];
-        addItemTodo(value, true);
+        addItemToDOM(value, true);
     }
 }
 
@@ -78,7 +90,7 @@ function completeItem() {
     target.insertBefore(item, target.childNodes[0]);
 }
 
-function addItemTodo(text, completed) {
+function addItemToDOM(text, completed) {
     var list = (completed) ? document.getElementById('completed'):document.getElementById('todo');
 
     var item = document.createElement('li');
